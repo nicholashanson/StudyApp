@@ -1,0 +1,28 @@
+<div class="container">
+    <h5>Student Login</h5>
+    <form name="studentLoginForm"
+        ng-submit="authStudent()">
+        <div class="form-group">
+            <label for="student-name">Name</label>
+            <input type="text"
+                class="form-control"
+                ng-model="studentToLogin.name" 
+                id="student-name"
+                placeholder="Enter your name"
+                required> 
+        </div>
+        <div class="form-group">
+            <label for="student-password">Password</label>    
+            <input type="text"
+                class="form-control"
+                ng-model="studentToLogin.password"
+                id="student-password" 
+                placeholder="Enter your password"
+                required>
+        </div>    
+        <input type="submit"
+            class="btn btn-primary"
+            value="Login"
+            ng-disabled="studentLoginForm.$invalid">
+    </form>
+</div>

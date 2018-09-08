@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="text-center">
+        <img src="static/images/{{ correctAnswer.imageUrl }}" 
+            width="400"
+            height="400"
+            class="rounded">
+    </div>
+    <div class="text-center" width="400">
+        <div ng-repeat="option in options" class="btn-group">
+            <button type="button" class="btn btn-primary" 
+                ng-click="submitAnswer($event)"
+                ng-disabled="answered()">
+                    {{ option.value }}</button>
+        </div>
+    </div>
+    <hr />
+    <div class="text-center" ng-if="answered()">
+        <span ng-if="answeredCorrectly">Correct!</span>
+        <span ng-if="answeredCorrectly==false">
+            Incorrect: The correct answer is {{ correctAnswer.value }}</span>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" ng-click="next()">
+                Next</button> </div>
+    </div>   
+</div>

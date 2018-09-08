@@ -1,0 +1,31 @@
+<div class="container border rounded">
+    <h5>Student Registration</h5>
+    <form name="addStudentForm"
+            ng-submit="addStudent()">
+        <div class="form-group">
+            <label for="name">Name</label>   
+            <input type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your name"
+                ng-model="studentToAdd.name"
+                required>
+            <span ng-if="studentAlreadyExists">
+                <small>A student with that name already exists</small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text"
+                class="form-control"
+                id="password"
+                placeholder="Enter a password"
+                ng-model="studentToAdd.password"
+                required> 
+        </div>
+        <button type="submit"
+            class="btn btn-primary"
+            ng-disabled="addStudentForm.$invalid">Submit</button>    
+    </form>
+    <span># of students: {{ studentCount }}</span>  
+</div>    

@@ -1,0 +1,22 @@
+<div class="container">
+    <h5>Add Book</h5>
+    <form name="addBookForm"
+        ng-submit="addBook()">
+        <div class="form-group">
+            <label for="title">Title</label>   
+            <input type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter a title"
+                ng-model="bookToAdd.title"
+                required>
+            <span ng-if="bookAlreadyExists">
+                <small>A book with that title already exists</small>
+            </span> 
+        </div>
+        <button type="submit"
+            class="btn btn-primary"
+            ng-disabled="addBookForm.$invalid">Submit</button>    
+    </form>
+    <span># of books: {{ bookCount }}</span>  
+</div>  

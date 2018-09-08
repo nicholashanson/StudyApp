@@ -1,0 +1,15 @@
+<div class="container">
+    <h3>{{ book.title }}</h3>
+    <div>
+        <h5>Units</h5>
+        <hr/>
+        <div ng-repeat="unit in book.units">
+            <span><a href="#/unit-view?b={{ book._id }}&u={{ unit._id }}">{{ unit.name }}</a></span>
+        </div>
+    </div>
+    <hr />
+    <button type="submit"
+        class="btn btn-primary"
+        ng-click="addUnit()">Add Unit</button>
+</div>
+            

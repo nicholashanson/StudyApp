@@ -1,0 +1,30 @@
+<div class="container">
+    <h5>Add Sentence</h5>
+    <form name="addSentenceForm"
+        ng-submit="addSentence()">
+        <div class="form-group"> 
+            <label for="unit-select">Choose a unit</label>
+            <br />
+            <select ng-model="selectUnit"
+                ng-options="unit.name for unit in units"
+                id="select-unit">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="value">Sentence</label>   
+            <input type="text"
+                class="form-control"
+                id="value"
+                placeholder="Enter a sentence"
+                ng-model="sentenceToAdd.value"
+                required>
+            <span ng-if="sentenceAlreadyExists">
+                <small>This sentence already exists in this unit</small>
+            </span> 
+        </div>
+        <add-word-to-sentence></add-word-to-sentence>
+        <button type="submit"
+            class="btn btn-primary"
+            ng-disabled="addSentenceForm.$invalid">Submit</button>    
+    </form>
+</div>  

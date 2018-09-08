@@ -1,0 +1,18 @@
+<div>
+    <div id="words-to-add">
+        <div id="word-to-add-1">
+            <input type="text"
+                placeholder="Enter a word"
+                id="word-to-add">
+            <button type="button"
+                class="btn btn-primary"
+                id="remove"
+                ng-click="remove($event)"
+                ng-disabled="lastElement()">Remove</button>
+        </div>
+    </div>
+    <button type="button" 
+        class="btn btn-primary"
+        id="add-another-word"
+        ng-click="addWord()">Add Word</button> 
+</div>

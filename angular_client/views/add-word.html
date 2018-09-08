@@ -1,0 +1,37 @@
+<div class="container">
+    <h5>Add Word</h5>
+    <form name="addWordForm"
+        ng-submit="addWord()">
+        <div class="form-group"> 
+            <label for="unit-select">Choose a unit</label>
+            <br /> 
+            <select ng-model="selectUnit"
+                ng-options="unit.name for unit in units"
+                id="select-unit">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="value">Word</label>   
+            <input type="text"
+                class="form-control"
+                id="value"
+                placeholder="Enter a word"
+                ng-model="wordToAdd.value"
+                required>
+            <span ng-if="wordAlreadyExists">
+                <small>This word already exists in this unit</small>
+            </span> 
+        </div>
+        <div class="form-group">
+            <label for="image-url">Image Url</label>   
+            <input type="text"
+                class="form-control"
+                id="image-url"
+                placeholder="Enter a url for the image"
+                ng-model="wordToAdd.imageUrl">
+        </div>
+        <button type="submit"
+            class="btn btn-primary"
+            ng-disabled="addWordForm.$invalid">Submit</button>    
+    </form>
+</div>  

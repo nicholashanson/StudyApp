@@ -1,0 +1,21 @@
+<div class="container">
+    <h3>{{ unit.name }}</h3>
+    <hr />
+    <div ng-repeat="word in unit.words">
+        <span>
+            <a href="#/word-view?b={{ book._id }}&u={{ unit._id }}&w={{ word._id }}">
+                {{ word.value }}
+            </a>
+        </span>
+    </div>
+    <hr />
+    <button type="button"
+        class="btn btn-primary"
+        ng-click="reviewUnit()">Review</button>
+    <button type="button" 
+        class="btn btn-primary"
+        ng-click="addWord()">Add Word</button>
+    <button type="button"
+        class="btn btn-primary"
+        ng-click="addSentence()">Add Sentence</button> 
+</div>

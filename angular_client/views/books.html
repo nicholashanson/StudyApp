@@ -1,0 +1,18 @@
+<div class="container">
+    <h5>Books</h5>
+    <div ng-if="books==false">
+        <span>There are no books currently available</span>
+    </div>
+    <div ng-if="books">
+        <p>Here is a list of available books:</p>
+        <div ng-repeat="book in books">
+           <span><a href="#/book-view?b={{ book._id }}">{{ book.title }}</a></span>
+        </div>
+    </div>
+    <hr/>
+    <button type="button"   
+        class="btn btn-primary"
+        ng-click="addBook()">Add Book</button>
+</div>
+   
+

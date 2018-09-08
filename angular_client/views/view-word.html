@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="text-center">
+        <img src="static/images/{{ word.imageUrl }}" 
+            width="400"
+            height="400"
+            class="rounded">
+</div>
+    <div class="text-center" width="400">
+        <button type="button" 
+            class="btn btn-primary"
+            ng-disabled="isFirstWord"
+            ng-click="previousWord()">Previous
+        </button>
+        <span>{{ word.value }}</span>
+        <button type="button" 
+            class="btn btn-primary"
+            ng-disabled="isLastWord"
+            ng-click="nextWord()">Next
+        </button>
+    </div>   
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <h5>Students</h5>
+    <div ng-if="students==false">
+        <span>There are no students currently registered</span>
+    </div>
+    <div ng-if="students">
+        <p>Here is a list of registered students:</p>
+        <div ng-repeat="student in students">
+            <span><a href="#/student-profile?s={{ student._id }}">{{ student.name }}</a></span>
+        </div>
+    </div>
+    <hr/>
+    <button type="button"   
+        class="btn btn-primary"
+        ng-click="addStudent()">Add Student</button>
+</div>
+   
+
