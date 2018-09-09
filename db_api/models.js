@@ -44,7 +44,11 @@ var unitSchema = Schema({
 })
         
 var bookSchema = Schema({
-    title: String,
+    title: {
+        type: String,
+        unique: true,
+        required: true
+    },
     units: [unitSchema]
 })
 
