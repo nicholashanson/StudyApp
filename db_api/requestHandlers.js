@@ -1,11 +1,15 @@
 /**
  * Request handlers
  */
-const passport = require('passport')
-const sendJsonResponse = require('../helpers').sendJsonResponse
-const studentStatsCallbacks = require('./student_stats').callbacks
+var passport = require('passport')
+var sendJsonResponse = require('../helpers').sendJsonResponse
+var studentStatsCallbacks = require('./student_stats').callbacks
 
-const models = require('./models')
+// mongoose models
+var models = require('./models')
+
+// wrapped mongoose methods
+var data_access = require('./data_access')
 
 /**
  * Fetch all documents from the "students" collection
@@ -127,13 +131,14 @@ function studentStatsHandler(req, res) {
  * Delete a document from the "students" collection.
  */
 function deleteStudentHandler(req,res) {
+    data_access.deleteStudent(id, function(err, 
 }  
 
 function getBooksHandler(req,res) {
 
     console.log('getBooks called')
 
-    dat_access.getBooks(function(err, books) {
+    data_access.getBooks(function(err, books) {
         if (err) sendJsonResponse(res, 404, err)
         else sendJsonResponse(res, 200, books)
     })
@@ -239,6 +244,10 @@ function addWordHandler(req, res) {
  * Remove a document from the "books" collection.
  */
 function deleteBookHandler(req,res) {
+    data_access.delete(id, function(err) {
+        if (err) sendJSONResponse(res, 404, err)
+        else sendJSONResponse(res, 200, {book_deleted: true})
+    })
 }    
 
 const requestHandlers = {
