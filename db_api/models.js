@@ -1,13 +1,13 @@
 /**
  * Create database models using mongoose.
  */
-const dbURI = 'mongodb://127.0.0.1:27017/test'
-const dbOptions = {
+var dbURI = 'mongodb://127.0.0.1:27017/test'
+var dbOptions = {
     useNewUrlParser: true
 }
 
-const mongoose = require('mongoose')
-const Schema = require('mongoose').Schema
+var mongoose = require('mongoose')
+var Schema = require('mongoose').Schema
 
 /**
  * Reuqire methods for password hashing
