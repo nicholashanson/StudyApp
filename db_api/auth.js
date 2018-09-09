@@ -12,7 +12,7 @@ var setPassword = function(password) {
 }
 
 /**
- * Hash user entered password and compared to
+ * Hash user entered password and compare to
  * password hash in database.
  * 
  * @param {String} password 
