@@ -229,6 +229,13 @@ function addWord(wordToAdd, callback) {
     })
 }
 
+function deleteBookById(id, callback) {
+    models.Book.remove((err) => {
+        if (err) callback(err)
+        else callback(null)
+    })
+}
+
 var data_access = {
     getStudents: getStudents,
     getStudentById: getStudentById,
