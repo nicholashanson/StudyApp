@@ -54,7 +54,7 @@ function getStudentCount(callback) {
 }
 
 /**
- * Add a new document to the "studnets" collection
+ * Add a new document to the "students" collection
  * 
  * @param {Object} studentToPost 
  * @param {Function} callback 
@@ -64,7 +64,7 @@ function postStudent(studentToPost, callback) {
     models.Student.findOne({ name: studentToPost.name })
         .exec((err, docs) => {
             if (err) {
-                callback(err, null)
+                callback(err, null, null)
             } else {
                 if (docs) {
                     callback(err, studentAlreadyExists, null)
@@ -82,9 +82,9 @@ function postStudent(studentToPost, callback) {
                     
                     studentToAdd.save((err, student) => {
                         if (err) 
-                            callback(err, null)
+                            callback(err, null, null)
                         else
-                            callback(null, student)             
+                            callback(null, null, student)             
                     })
                 }
             }
@@ -101,7 +101,7 @@ function getBooks(callback) {
         .exec( 
             (error, books) => {
                 if (err) 
-                    callback(error, null)                         
+                    callback(err, null)                         
                 else 
                     callback(null, books)
             })
@@ -137,7 +137,7 @@ function postBook(bookToPost, callback) {
             callback(err, null, null)
         else {
             if (docs) {
-                sendJsonResponse(null, bookAlreadyExists, null)
+                callback(null, bookAlreadyExists, null)
                 return
             }
             
@@ -223,7 +223,7 @@ function addWord(wordToAdd, callback) {
                 if (err) 
                     callback(err, null, null)
                 else 
-                    callbakc(null, null, book)
+                    callback(null, null, book)
             })
         }
     })
